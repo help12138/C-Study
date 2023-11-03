@@ -40,7 +40,7 @@ void typeInfo(void) {
 	auto sum = aa + bb;
 }
 
-void main(void) {
+void main1(void) {
 	//pointer();
 	
 	return;
