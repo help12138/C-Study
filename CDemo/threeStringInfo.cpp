@@ -48,7 +48,7 @@ void strIndex(void) {
 	cout << result << " " << endl;
 }
 
-int main(void) {
+int main2(void) {
 	/**
 	* 字符串
 	* 需要引入头文件<string>

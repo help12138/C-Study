@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StringInfo.cpp" />
+    <ClCompile Include="threeArr.cpp" />
+    <ClCompile Include="threeStringInfo.cpp" />
     <ClCompile Include="twoInfo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

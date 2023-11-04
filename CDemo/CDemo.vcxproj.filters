@@ -18,7 +18,10 @@
     <ClCompile Include="twoInfo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="StringInfo.cpp">
+    <ClCompile Include="threeStringInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="threeArr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
