@@ -41,9 +41,37 @@ void iterdic(void) {
 	}
 }
 
+void arrInfo(void) {
+	/**
+	* 数组也是存放相同类型的容器，大小固定，不能随意添加元素
+	* 定义数组时必须指定数组的类型，因此不存在引用的数组
+	* 
+	*/
+	
+	// 字符数组以字面量的方式赋值时，最后面会默认加上一个空格符
+	char arrStr[7] = "nidnsa"; // 定义大小时不要忘记最后的空格符
+
+	// 输出所有数组元素的 用范围for
+	int allArr[] = { 1,2,4,64,32,7,8,5 };
+	for (auto arr : allArr) {
+		cout << arr << " ";
+	}
+
+	/**
+	* 使用数组时，编译器会把他转换为指针
+	* 当其它地方用到数组名的时候，编译器会自动的将其替换为一个指向数组首元素的指针
+	* 当使用deltype时这种转换不会发生
+	*/
+
+	//数组也有函数 begin() 和 end()，与vector功能相同，但不是成员函数，用法有所区别
+	int* beg = begin(allArr);
+	int* ed = end(allArr);
+
+}
+
 int main(void) {
 	
-
+	
 	
 	return 0;
 }
