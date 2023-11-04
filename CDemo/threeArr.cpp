@@ -26,6 +26,7 @@ void iteratorInfo(void) {
 
 void iterdic(void) {
 	//¶þ·Ö·¨
+	vector<string> ss {"s", "a", "v", "r", "j", "q", "x"};
 	auto beg = ss.begin(), end = ss.end();
 	auto mid = beg + (end - beg) / 2;
 	while (mid != end && *mid != "a")
@@ -41,7 +42,7 @@ void iterdic(void) {
 }
 
 int main(void) {
-	vector<string> ss {"s","a","v", "r", "j", "q", "x"};
+	
 
 	
 	return 0;
