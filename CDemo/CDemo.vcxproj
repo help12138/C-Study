@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sixFun.cpp" />
     <ClCompile Include="threeArr.cpp" />
     <ClCompile Include="threeStringInfo.cpp" />
     <ClCompile Include="twoInfo.cpp" />

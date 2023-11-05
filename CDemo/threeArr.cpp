@@ -78,7 +78,7 @@ void allMoreArr(void) {
 
 }
 
-int main(void) {
+int main3(void) {
 	
 	constexpr size_t rowCnt = 3, colCnt = 4;
 	int ia[rowCnt][colCnt];
