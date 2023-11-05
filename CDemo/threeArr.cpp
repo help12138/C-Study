@@ -56,7 +56,6 @@ void arrInfo(void) {
 	for (auto arr : allArr) {
 		cout << arr << " ";
 	}
-
 	/**
 	* 使用数组时，编译器会把他转换为指针
 	* 当其它地方用到数组名的时候，编译器会自动的将其替换为一个指向数组首元素的指针
@@ -69,9 +68,26 @@ void arrInfo(void) {
 
 }
 
+void allMoreArr(void) {
+	/**
+	* 多维数组   c++严格来讲没有多维数组，有的是数组的数组
+	*/
+	int mArr[3][4]; // 大小为3的数组，每个元素是含有四个整数的数组
+
+	// 通常用双层for循环来遍历二维数组
+
+}
+
 int main(void) {
 	
-	
+	constexpr size_t rowCnt = 3, colCnt = 4;
+	int ia[rowCnt][colCnt];
+	for (size_t i = 0; i != rowCnt; ++i) {
+		for (size_t j = 0; j != colCnt; ++j) {
+			ia[i][j] = i * colCnt + j;
+		}
+		cout << *ia[i] << endl;
+	}
 	
 	return 0;
 }
