@@ -49,12 +49,28 @@ void reset(int* ip) {
 	cout << "i= " << i;*/
 }
 
+string::size_type find_char(const string& s, char c, string::size_type& occurs) {
+	/**
+	*引用传参
+	*不需要拷贝，直接传递原实参。
+	*/
+	auto ret = s.size();
+	occurs = 0;
+	for (decltype(ret) i = 0; i != s.size(); ++i) {
+		if (s[i] == c) {
+			if (ret == s.size()) {
+				ret = i;  // 返回第一次c 出现的位置
+			}
+			++occurs;
+		}
+	}
+	/*string s = "jhfcdsodf";
+	string::size_type ctr;
+	find_char(s, 'c', ctr);*/
+}
 
 int main(void) {
-	string s = "jhfcdsodf";
-	auto ret = s.size();
-	decltype(ret) i = 0;
-
-	cout << i << " " << ret;
+	
+	
 	return 0;
 }
