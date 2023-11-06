@@ -49,7 +49,12 @@ void reset(int* ip) {
 	cout << "i= " << i;*/
 }
 
+
 int main(void) {
-	
+	string s = "jhfcdsodf";
+	auto ret = s.size();
+	decltype(ret) i = 0;
+
+	cout << i << " " << ret;
 	return 0;
 }
