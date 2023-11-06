@@ -36,10 +36,20 @@ size_t count_calls() {
 	}*/
 }
 
+void reset(int* ip) {
+	/**
+	* 指针传参
+	* 指针跟其它非引用类型一样，传参时进行拷贝操作。两个指针是不同的指针
+	*/
+	*ip = 0;  // 改变了指针ip所指的对象
+	ip = 0;   // 只改变了ip的局部拷贝，实参未被改变.
+
+	/*int i = 23;
+	reset(&i);
+	cout << "i= " << i;*/
+}
+
 int main(void) {
-	for (size_t i = 0; i !=10; ++i)
-	{
-		cout << count_calls() << endl;
-	}
+	
 	return 0;
 }
