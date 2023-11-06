@@ -53,6 +53,10 @@ string::size_type find_char(const string& s, char c, string::size_type& occurs) 
 	/**
 	*引用传参
 	*不需要拷贝，直接传递原实参。
+	* 
+	* 把函数不会改变的形参定义成普通引用是一种比较常见的错误，
+	* 尽量定义为常量引用。
+	* 
 	*/
 	auto ret = s.size();
 	occurs = 0;
@@ -64,13 +68,22 @@ string::size_type find_char(const string& s, char c, string::size_type& occurs) 
 			++occurs;
 		}
 	}
+	return ret;
 	/*string s = "jhfcdsodf";
 	string::size_type ctr;
 	find_char(s, 'c', ctr);*/
 }
 
+void print(int(&arr)[3]) {
+	arr[0] = 89;
+	cout << *arr << endl; 
+	cout << arr+1 << endl; 
+	cout << arr+2;
+}
+
 int main(void) {
-	
-	
+	int k[3] = { 1,4,6 };
+	print(k);
+	cout << "k[0] is " << k[0];
 	return 0;
 }
