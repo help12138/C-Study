@@ -83,7 +83,7 @@ void print(int(&arr)[3]) {
 	cout << arr+2;
 }
 
-int main(void) {
+int main6(void) {
 	int k[3] = { 1,4,6 };
 	print(k);
 	cout << "k[0] is " << k[0];

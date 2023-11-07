@@ -27,5 +27,8 @@
     <ClCompile Include="sixFun.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="sevenClass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
