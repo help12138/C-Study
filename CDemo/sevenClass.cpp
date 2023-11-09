@@ -35,6 +35,25 @@ int firstSalesClass(void) {
 }
 
 int main(void) {
-	
+	Sales_data2 total;
+	if (read(cin, total)) {  // 第一笔交易
+		Sales_data2 trans; 
+		while (read(cin, trans))  // 读入剩余的变量
+		{
+			if (total.isbn() == trans.isbn()) {  // 对比isbn
+				total.combine(trans);
+			}
+			else {
+				print(cout, total) << endl;
+				total = trans;
+			}
+		}
+		print(cout, total) << endl;
+	}
+	else {
+		cerr << "No data?" << endl;
+	}
+
 	return 0;
 }
+
