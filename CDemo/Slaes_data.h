@@ -6,7 +6,7 @@
 using namespace std;
 
 // 初次定义sale_data类
-struct Sales_data
+struct Sales_data1
 {
 	string bookNo;
 	unsigned units_sold = 0;
@@ -51,7 +51,7 @@ ostream& print(ostream&, const Sales_data2&);
 istream& read(istream&, Sales_data2&);
 
 
-double Sales_data2::avg_price() const {
+double Sales_data::avg_price() const {
 	if (units_sold) {
 		return revenue / units_sold;
 	}
@@ -83,5 +83,53 @@ Sales_data2 add(const Sales_data2& lhs, const Sales_data2& rhs) {
 	Sales_data2 sum = lhs;
 	sum.combine(rhs);
 	return sum;
+}
+
+/// <summary>
+/// class和struct的默认访问权限不一样
+/// class定义在第一个访问说明符之前的成员是private的
+/// struct的成员是public的
+/// </summary>
+class Sales_data
+{
+	/// <summary>
+	/// 因为class定义的数据都是私有的,所以外部定义的接口函数就无法使用,
+	/// 所以增加一个友元的概念,及在class里面添加一个以friend开头的函数声明.
+	/// 友元声明只能出现在类定义的内部
+	/// </summary>
+	
+	friend istream& read(istream& is, Sales_data& item);
+	friend ostream& print(ostream& os, const Sales_data& item);
+	friend Sales_data add(const Sales_data& lhs, const Sales_data& rhs);
+public:
+	/// <summary>
+	/// public函数说明符之后的成员在整个程序内都可被访问
+	/// </summary>
+	Sales_data() = default;
+	~Sales_data();
+	Sales_data(const string& s) :bookNo(s) {};
+	Sales_data(const string& s, unsigned n, double p) :bookNo(s), units_sold(n), revenue(p* n) {};
+	string isbn() const { return bookNo; };
+	Sales_data& combine(const Sales_data&);
+	Sales_data(istream&);
+
+private:
+	/// <summary>
+	/// private说明符之后的函数可以被类的成员函数访问，但不能被使用该类的代码访问
+	/// private部分封装了类的实现细节
+	/// </summary>
+	double avg_price() const;
+	
+	string bookNo;
+	unsigned units_sold = 0;
+	double revenue = 0.0;
+};
+
+Sales_data::Sales_data()
+{
+}
+
+Sales_data::~Sales_data()
+{
 }
 #endif 

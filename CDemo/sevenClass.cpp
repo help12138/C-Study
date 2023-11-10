@@ -6,7 +6,7 @@
 #include "Slaes_data.h"
 
 int firstSalesClass(void) {
-	Sales_data data1, data2;
+	Sales_data1 data1, data2;
 	double price = 0;
 
 	cin >> data1.bookNo >> data1.units_sold >> price; // 第一笔交易
