@@ -34,10 +34,11 @@ int firstSalesClass(void) {
 	}
 }
 
-int main(void) {
+void runSales_data() {
+	// 调用sales_data2 类
 	Sales_data2 total;
 	if (read(cin, total)) {  // 第一笔交易
-		Sales_data2 trans; 
+		Sales_data2 trans;
 		while (read(cin, trans))  // 读入剩余的变量
 		{
 			if (total.isbn() == trans.isbn()) {  // 对比isbn
@@ -53,6 +54,10 @@ int main(void) {
 	else {
 		cerr << "No data?" << endl;
 	}
+}
+
+int main(void) {
+	
 
 	return 0;
 }

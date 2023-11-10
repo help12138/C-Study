@@ -16,6 +16,22 @@ struct Sales_data
 //改进 sale_data类
 struct Sales_data2
 {
+	/// <summary>
+	/// 构造函数
+	/// 类通过一个或者几个特殊的成员函数来控制其对象的初始化过程，这些函数叫做构造函数
+	/// 判断一个类内函数是不是构造函数，看他的名字是不是与类名相同。
+	/// 构造函数没有返回类型
+	/// 类可以包含多个构造函数，和其它重载函数差不多
+	/// 构造函数不能被声明成const的
+	/// 如果我们没有主动的写任何构造函数，类会自动帮我们生成一个默认的构造函数
+	/// </summary>
+
+	Sales_data2() = default;
+	Sales_data2(const string& s) :bookNo(s) {};
+	Sales_data2(const string& s, unsigned n, double p) :bookNo(s), units_sold(n), revenue(p* n) {};
+	Sales_data2(istream &is) {
+		read(is, *this);
+	};
 	// 由const修饰的成员函数，函数体里面只能调用其它const修饰过的函数，且不能修改变量
 	// 但是可以被其它非const修饰过的成员函数调用。
 	string isbn() const { return bookNo; };
