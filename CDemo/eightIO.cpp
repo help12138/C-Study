@@ -11,14 +11,23 @@
 
 using namespace std;
 
-int main() {
+void writeFile(void) {
+	// 输出流对象创建
 	ofstream fout;
 	/*string filename = "E:\\CTest\\CDemo\\test.txt";
 	* string filename = R"E:\CTest\CDemo\test.txt";
 	* fout.open(filename);
 	* 也可以用变量来表示
+	* 输出流如果文件存在,则写入文件,如果文件不存在,则创建并写入文件
 	*/
 	fout.open("E:\\CTest\\CDemo\\test.txt");  // 可指定地址
+
+	if (fout.is_open() == false) {
+		// 打开文件后需要判断是否打开成功
+		// 失败的情况主要有三种,1.目录不存在  2.磁盘空间已满  3没有权限,linux平台下常见
+		cout << "打开文件失败" << endl;
+		return;
+	}
 
 	fout << "春花秋月何时了,\n";
 	fout << "往事知多少,\n";
@@ -26,5 +35,25 @@ int main() {
 	fout << "故国不堪回首月明中,\n";
 
 	fout.close();  // 文件打开后必须关闭
+}
+
+int main() {
+	ifstream fin;
+	fin.open("E:\\CTest\\CDemo\\test.txt");
+
+	if (fin.is_open() == false) {
+		//输入流失败原因只有一个,即文件不存在
+		cout << "文件不存在" << endl;
+		return 0;
+	}
+
+	string buffer;
+	while (getline(fin, buffer))
+	{
+		cout << buffer << endl;
+	}
+	
+
+	fin.close();
 	return 0;
 }
