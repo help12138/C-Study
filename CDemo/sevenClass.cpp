@@ -56,7 +56,7 @@ void runSales_data() {
 	}
 }
 
-int main(void) {
+int main7(void) {
 	
 
 	return 0;
