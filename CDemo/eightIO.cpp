@@ -19,6 +19,7 @@ void writeFile(void) {
 	* fout.open(filename);
 	* 也可以用变量来表示
 	* 输出流如果文件存在,则写入文件,如果文件不存在,则创建并写入文件
+	* 如果要写入二进制文件,可以在open函数里加上 ios::binary
 	*/
 	fout.open("E:\\CTest\\CDemo\\test.txt");  // 可指定地址
 
@@ -37,14 +38,14 @@ void writeFile(void) {
 	fout.close();  // 文件打开后必须关闭
 }
 
-int main() {
+void read(void) {
 	ifstream fin;
-	fin.open("E:\\CTest\\CDemo\\test.txt");
+	fin.open("E:\\CTest\\CDemo\\test.txt", ios::in);
 
 	if (fin.is_open() == false) {
 		//输入流失败原因只有一个,即文件不存在
 		cout << "文件不存在" << endl;
-		return 0;
+		return;
 	}
 
 	string buffer;
@@ -52,8 +53,24 @@ int main() {
 	{
 		cout << buffer << endl;
 	}
-	
+
 
 	fin.close();
+}
+
+int main() {
+	fstream finof;
+	finof.open("E:\\CTest\\CDemo\\test.txt", ios::app);
+	if (finof.is_open() == false) {
+		cout << "打开文件失败" << endl;
+	}
+
+	finof << "林花谢了春红,\n";
+	finof << "太匆匆,\n";
+	finof << "无奈朝来寒雨夜来风,\n";
+	finof << "胭脂泪,游人醉,\n";
+	finof << "自是人生长恨水长东\n";
+
+	finof.close();
 	return 0;
 }
