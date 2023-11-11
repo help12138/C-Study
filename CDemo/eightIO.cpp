@@ -58,7 +58,7 @@ void read(void) {
 	fin.close();
 }
 
-int main() {
+int main8() {
 	fstream finof;
 	finof.open("E:\\CTest\\CDemo\\test.txt", ios::app);
 	if (finof.is_open() == false) {
