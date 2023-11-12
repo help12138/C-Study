@@ -36,6 +36,9 @@
     <ClCompile Include="nineVector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="tenGener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Slaes_data.h">
