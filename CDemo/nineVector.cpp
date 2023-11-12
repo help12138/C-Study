@@ -90,10 +90,29 @@ void orderArr() {
 	list<int> ilist(10, 21);
 	ilist.resize(15); // 将5个值为0的元素添加到ilist的尾部
 	ilist.resize(5);  // 从ilist末尾删除20个元素
+
+	/**
+	向容器添加元素和从容器中删除元素的操作可能会使指向容器元素的指针,引用,或者迭代器失效
+	*/
+	vector<int> nums = { 0,1,2,3,4,5,6,7,8,9 };
+	auto oter = nums.begin();
+	while (oter != nums.end())
+	{
+		if (*oter % 2) {
+			oter = nums.insert(oter, *oter);
+			oter += 2;
+		}
+		else {
+			oter = nums.erase(oter);
+		}
+
+		cout << *oter++;
+	}
 }
 
 int main() {
 	
+
 	return 0;
 }
 
