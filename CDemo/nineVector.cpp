@@ -18,7 +18,7 @@
 
 #include<iostream>
 #include<string>
-#include<vector>
+#include<array>
 #include<list>
 
 using namespace std;
@@ -29,9 +29,22 @@ void vectorInfo(void) {
 	//c开头的begin支持auto与begin和end的结合,获得const_iterator类型的迭代器
 	auto it7 = a.begin();  // 仅当a是const时,it7是const_iterator
 	auto it8 = a.cbegin();  // it8是const_iterator
+
+	//array类型使用时必须指定元素类型和大小
+	//array<int, 10>;
+	// 我们不能对内置数组类型进行拷贝和赋值,但是array类型并无此限制
+	//int digs[4] = { 1,34,56,3 };
+	//int cpy[4] = digs;   会报错
+	array<int, 3> arr = { 1,3,5 };
+	array<int, 3> copyarr = arr; // 拷贝array数组,类型和大小又要与原array数组一样
+
 }
 
 int main() {
+	int b[3] = { 1,4,6 };
+	int c[3] = { 2,5,7 };
+	swap(b, c);
+	cout << b[0] << " " << c[0] << endl;
 	return 0;
 }
 
