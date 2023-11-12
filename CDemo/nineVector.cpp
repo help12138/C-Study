@@ -20,6 +20,7 @@
 #include<string>
 #include<array>
 #include<list>
+#include<vector>
 
 using namespace std;
 
@@ -38,13 +39,61 @@ void vectorInfo(void) {
 	array<int, 3> arr = { 1,3,5 };
 	array<int, 3> copyarr = arr; // 拷贝array数组,类型和大小又要与原array数组一样
 
+	int b[3] = { 1,4,6 };
+	int c[3] = { 2,5,7 };
+	//swap交换两个数组的元素,两个容器必须有相同的元素
+	swap(b, c);
+	cout << b[0] << " " << c[0] << endl;
+
+}
+
+void orderArr() {
+	/*
+	* 顺序容器
+	* 顺序容器与关联容器的不同之处在于两者组织元素的方式
+	*/
+	/*
+	* push_back  从数组尾部添加元素
+	* push_front 从数组头部添加元素
+	* insert  从指定位置添加元素
+	*/
+	string word;
+	vector<string> str1;
+	while (cin >> word)
+	{
+		str1.push_back(word);
+	}
+	// 可以在容器中特定位置反复插入元素
+	list<string> lst;
+	auto iter = lst.begin();
+	while (cin >> word)
+	{
+		// 效果等同于push_front;
+		iter = lst.insert(iter, word);
+	}
+
+	/*
+	* emplace_front,emplace, emplace_back
+	* 这些操作构造而不是元素
+	* 当我们调用时,将参数传递给元素类型的构造函数
+	* 
+	* 假定 c 保存一个sales_data元素
+	* 
+	* c.emplace_back("sdsads" , 1234, 221);
+	* 等同于
+	* c.push_back(Sales_data("sdsads" , 1234, 221));
+	*/
+
+	/*
+	* 可以用resize来增大或缩小容器
+	*/
+	list<int> ilist(10, 21);
+	ilist.resize(15); // 将5个值为0的元素添加到ilist的尾部
+	ilist.resize(5);  // 从ilist末尾删除20个元素
 }
 
 int main() {
-	int b[3] = { 1,4,6 };
-	int c[3] = { 2,5,7 };
-	swap(b, c);
-	cout << b[0] << " " << c[0] << endl;
+	
 	return 0;
 }
 
