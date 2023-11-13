@@ -56,7 +56,7 @@ void elimDups(vector<string>& word) {
 	word.erase(end_unique, word.end());
 }
 
-int main() {
+int main10() {
 	
 	
 
