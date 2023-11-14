@@ -35,7 +35,7 @@ void mapInfo(void) {
 	}
 }
 
-int main() {
+int main11() {
 
 	return 0;
 }

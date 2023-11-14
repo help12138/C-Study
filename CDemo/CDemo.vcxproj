@@ -135,6 +135,7 @@
     <ClCompile Include="tenGener.cpp" />
     <ClCompile Include="threeArr.cpp" />
     <ClCompile Include="threeStringInfo.cpp" />
+    <ClCompile Include="twelveDongtai.cpp" />
     <ClCompile Include="twoInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
