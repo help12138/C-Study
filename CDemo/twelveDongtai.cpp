@@ -81,6 +81,34 @@ void StrBlob::pop_back() {
 	data->pop_back();
 }
 
+void newInfo() {
+	/*
+	* c++ 定义了两个运算来分配和释放动态内存
+	* new  delete
+	*/
+
+	// 在自由空间分配的内存是无名的
+	//且是默认初始化的
+	string* ps = new string;  // 无名的初始化为空的string对象
+	//也可以直接初始化
+	int* ps1 = new int(15);
+	// 值初始化
+	int* ps2 = new int();
+
+	// 如果我们提供了一个括号包围的初始化器,就可以使用auto
+	// 不过只有当括号中仅有单一初始化器的时候才能使用auto
+	//auto pl = new auto(obj);
+}
+
+void DeleteInfo() {
+	// 我们通过delete表达式来将动态内存归还系统
+	// 传递给delete的指针,必须指向动态分配的内存,或是一个空指针
+	// 释放一块并非new分配的内存,或者将相同的指针释放多次,其行为是未定义的
+	const int* ptr = new const int(1024);
+	delete ptr;
+	//由内置指针类型管理的内存,直到显示释放前它都是存在的
+}
+
 int main() {
 	
 	
