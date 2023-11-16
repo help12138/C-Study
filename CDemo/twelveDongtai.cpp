@@ -35,6 +35,22 @@ void sharedInfo() {
 	*/
 }
 
+void uniqueInfo() {
+	/*
+	* 某个时刻只能又一个unique_ptr指向一个给定对象
+	* 当我们定义一个unique_ptr时,需要将其绑定到一个new返回的指针
+	* 初始化unique_ptr必须采用直接初始化形式
+	*/
+	unique_ptr<int>p2(new int(32));
+
+	/*
+	* 我们不能拷贝或赋值unique_ptr
+	* 但是可以通过release或reset将指针所有权转移
+	*/
+	unique_ptr<string>ps(new string("name is aaa"));
+	unique_ptr<string>ps1(ps.release());  // release将ps置空
+}
+
 class StrBlob
 {
 	/*
