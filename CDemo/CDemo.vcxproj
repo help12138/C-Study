@@ -133,6 +133,7 @@
     <ClCompile Include="sevenClass.cpp" />
     <ClCompile Include="sixFun.cpp" />
     <ClCompile Include="tenGener.cpp" />
+    <ClCompile Include="thirClass.cpp" />
     <ClCompile Include="threeArr.cpp" />
     <ClCompile Include="threeStringInfo.cpp" />
     <ClCompile Include="twelveDongtai.cpp" />

@@ -125,7 +125,7 @@ void DeleteInfo() {
 	//由内置指针类型管理的内存,直到显示释放前它都是存在的
 }
 
-int main() {
+int main12() {
 	
 	
 	return 0;
