@@ -1,4 +1,8 @@
-
+/*
+* 如果一个类需要自定义析构函数,几乎可以肯定他也需要自定义拷贝赋值运算符和拷贝构造函数
+* 如果一个类需要一个拷贝构造函数,几乎可以肯定它也需要一个拷贝赋值运算符 反之亦然
+* 无论是需要拷贝构造函数还是需要拷贝赋值运算符都不必然意味着也需要析构函数
+*/
 #include<iostream>
 #include<string>
 #include<vector>
@@ -41,11 +45,11 @@ public:
 
 private:
 	string name;
-	int age;
+	int age = 0;
 };
 
-Foo::Foo(){}
-Foo::Foo(const Foo &c):name(c.name)
+Foo::Foo() { }
+Foo::Foo(const Foo &c):name(c.name),age(c.age)
 {// 拷贝构造函数体
 
 }
@@ -71,6 +75,91 @@ void InitInfo() {
 	Foo man, man2;
 	man = man2;
 
+}
+
+/*
+* 为了定义拷贝操作,有两种选择
+* 使类的行为看起来像一个值或者像一个指针
+* 使类的行为看起来像一个值时,副本和原对象是完全独立的
+* 使类的行为看起来像一个指针时,两者使用相同的底层数据
+*/
+
+class HasPtr
+	//对于行为类似值的类
+{
+public:
+	HasPtr();
+	HasPtr(const string& s = string()) :
+		ps(new string(s)), i(0) {};
+	HasPtr(const HasPtr& p) :
+		ps(new string(*p.ps)), i(p.i) {};
+	HasPtr& operator=(const HasPtr&);
+	~HasPtr();
+
+private:
+	string* ps;
+	int i;
+};
+
+HasPtr::HasPtr()
+{
+}
+HasPtr& HasPtr::operator=(const HasPtr& rhs) {
+	auto newp = new string(*rhs.ps);
+	delete ps;
+	ps = newp;
+	i = rhs.i;
+	return *this;
+}
+HasPtr::~HasPtr()
+{
+	delete ps;
+}
+
+
+class HasPtr2
+	// 对于行为类似指针的类
+{
+public:
+	HasPtr2();
+	HasPtr2(const string& s = string()) :
+		ps(new string(s)), i(0), use(new size_t(1)) {};
+	HasPtr2(const HasPtr2&p):
+		ps(p.ps), i(p.i), use(p.use) {
+		++*use;
+	}
+	HasPtr2& operator=(const HasPtr2&);
+	~HasPtr2();
+
+private:
+	string* ps;
+	int i;
+	size_t* use; //用来记录有多少个共享*ps的成员
+};
+
+HasPtr2::HasPtr2()
+{
+}
+
+HasPtr2& HasPtr2::operator=(const HasPtr2& rhs2) {
+	++*rhs2.use;
+	if (--*use == 0) {
+		delete ps;
+		delete use;
+	}
+	ps = rhs2.ps;
+	i = rhs2.i;
+	use = rhs2.use;
+	return *this;
+
+}
+
+HasPtr2::~HasPtr2()
+{
+	if (--*use == 0) {
+		delete ps;
+		delete use;
+	}
 }
 
 int main() {
