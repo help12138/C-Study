@@ -7,11 +7,27 @@
 */
 #include "OOP.h";
 
-//派生类必须明确指出他从哪个类继承而来
+//派生类必须明确指出他从哪个类继承而来, 后面可以用逗号隔开几个基类
+// 大多数派生类都只继承一个类,这种被称为单继承
 class Bulk_quote : public Quote {
 public:
+	Bulk_quote() = default;
+	Bulk_quote(const string& book, double p, size_t qty, double disc) {};
+
+	//后面加override 显式的注明使用某个成员函数覆盖了它继承的虚函数
 	double net_price(size_t) const override;
+private:
+	size_t min_qty = 0;
+	double discount = 0.0;
 };
+
+double Bulk_quote::net_price(size_t cnt) const {
+	// 派生类可以访问基类的公有成员和受保护成员
+	if (cnt >= min_qty)
+		return cnt * (1 - discount) * price;
+	else
+		return cnt * price;
+}
 
 int main() {
 	return 0;
