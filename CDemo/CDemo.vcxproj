@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="eightIO.cpp" />
     <ClCompile Include="elevenVessel.cpp" />
+    <ClCompile Include="fourTeenOOP.cpp" />
     <ClCompile Include="nineVector.cpp" />
     <ClCompile Include="sevenClass.cpp" />
     <ClCompile Include="sixFun.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="twoInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OOP.h" />
     <ClInclude Include="Slaes_data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -48,9 +48,15 @@
     <ClCompile Include="thirClass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="fourTeenOOP.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Slaes_data.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OOP.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

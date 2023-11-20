@@ -162,6 +162,6 @@ HasPtr2::~HasPtr2()
 	}
 }
 
-int main() {
+int main13() {
 	return 0;
 }
